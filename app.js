@@ -12,7 +12,7 @@ const app = express();
 const corsOptions = {
     origin: 'https://phoenix-intensive.github.io', // Укажите ваш источникн
     methods: ['POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type'],
+    allowedHeaders: ['Content-Type', 'x-auth-token']
 };
 
 // Используйте middleware
