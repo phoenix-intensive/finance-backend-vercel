@@ -6,7 +6,6 @@ const incomeCategoriesRoutes = require('./routes/category-income.routes');
 const operationsRoutes = require('./routes/operation.routes');
 const balanceRoutes = require('./routes/balance.routes');
 
-
 const app = express();
 
 // Настройка CORS
@@ -30,5 +29,10 @@ app.use("/api/balance", balanceRoutes);
 // Обработчик для OPTIONS запросов
 app.options('*', cors(corsOptions));
 
-// Запуск сервера
-app.listen(3000, () => console.log('Server started on port 3000'));
+// Обработчик ошибок
+app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(500).json({ message: "Internal Server Error" });
+});
+
+module.exports = app; // Экспортируйте app для использования Vercel
