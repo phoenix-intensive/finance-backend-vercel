@@ -19,6 +19,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
+// Заголовки для предотвращения кеширования
+app.use((req, res, next) => {
+    res.setHeader('Cache-Control', 'no-store');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    next();
+});
+
 // Подключите ваши маршруты
 app.use("/api", authRoutes);
 app.use("/api/categories/expense", expenseCategoriesRoutes);
