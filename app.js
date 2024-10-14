@@ -10,7 +10,7 @@ const app = express();
 
 // Настройка CORS
 const corsOptions = {
-    origin: 'https://phoenix-intensive.github.io', // Укажите ваш источник
+    origin: 'https://phoenix-intensive.github.io', // Укажите ваш источникн
     methods: ['POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type'],
 };
